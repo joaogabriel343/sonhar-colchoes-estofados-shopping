@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 100%; /* Cor de texto ajustada para um tom escuro */
+    
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%; /* Cor de texto do card */
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%; /* Cor de texto do popover */
+
+    --primary: 0 100% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 100%; /* Cor de texto secundário */
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%; /* Cor de texto "muted" */
+
+    --accent: 0 100% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 100% 45%;
+
+    --radius: 0.5rem;
+  }
+  
+
+  /* Aplicando no corpo e elementos de texto */
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+    /* Garantir que todo texto dentro dos slides seja branco */
+    .hero-slide-text h1,
+    .hero-slide-text p {
+      color: white !important;
+    }
+
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-medium text-sonhar-black;
+  }
+
+  p, span, li {
+    @apply text-foreground; /* Agora a cor de texto será controlada por --foreground */
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  } 
+  
+  /* Atualizado para garantir que as cores de texto sejam mais escuras */
+  .dark p, .dark , .dark li {
+    @apply text-gray-800; /* Cor de texto escura no modo escuro */
+  }
+  /*AQUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII TROCA A COR DO INTERESSSSSSSSE*/
+  span{
+    @apply text-gray-100;
+  }
+  /* Garantir que apenas os span dentro do ul com classe "space-y-2" terão texto preto */
+.space-y-2 li span {
+  @apply text-black; /* Texto preto apenas dentro da lista de valores */
+}
+
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-sonhar-red text-white px-6 py-3 rounded-md font-medium transition-all duration-300 hover:bg-opacity-90 shadow-sm;
+  }
+  
+  .btn-secondary {
+    @apply bg-sonhar-black dark:bg-white dark:text-sonhar-black text-white px-6 py-3 rounded-md font-medium transition-all duration-300 hover:bg-opacity-90 shadow-sm;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-sonhar-red text-sonhar-red dark:text-sonhar-red px-6 py-[10px] rounded-md font-medium transition-all duration-300 hover:bg-sonhar-red hover:text-white shadow-sm;
+  }
+
+  .message-btn {
+    @apply bg-sonhar-red text-white px-6 py-3 rounded-md font-medium transition-all duration-300 hover:bg-opacity-90 shadow-sm;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl font-display font-bold mb-2 relative;
+  }
+  
+  .section-title::after {
+    @apply content-[''] absolute bottom-0 left-0 w-16 h-1 bg-sonhar-red;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-elegant hover:translate-y-[-5px];
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-sonhar-red to-sonhar-black dark:to-white bg-clip-text text-transparent;
+  }
+  
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+  
+  .whatsapp-btn {
+    @apply flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded-md transition-all hover:bg-green-600;
+  }
+  
+  .badge {
+    @apply bg-sonhar-red text-white text-xs px-2 py-1 rounded-full absolute top-2 right-2;
+  }
+}
+
+/* Smooth animations */
+.appear {
+  @apply opacity-0;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.appear-delay-100 {
+  animation-delay: 0.1s;
+}
+
+.appear-delay-200 {
+  animation-delay: 0.2s;
+}
+
+.appear-delay-300 {
+  animation-delay: 0.3s;
+}
+
+/* Glass effect */
+.glass {
+  @apply bg-white dark:bg-black bg-opacity-10 dark:bg-opacity-10 backdrop-blur-md border border-white dark:border-gray-800 border-opacity-20 shadow-lg;
+}
+
+/* Prevent image distortion */
+.img-cover {
+  @apply w-full h-full object-cover;
+}
