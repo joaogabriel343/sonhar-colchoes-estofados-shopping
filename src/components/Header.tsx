@@ -114,36 +114,36 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-md py-4 px-4 animate-fadeIn">
+        <div className="md:hidden absolute top-full left-0 w-full bg-sonhar-black shadow-md py-4 px-4 animate-fadeIn">
           <nav className="flex flex-col gap-4">
             <Link 
               to="/" 
-              className="font-medium py-2 border-b border-gray-100 hover:text-sonhar-red transition-colors"
+              className="font-medium py-2 border-b border-gray-700 text-white hover:text-sonhar-red transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               Início
             </Link>
             <button 
               onClick={() => handleNavigation('about')}
-              className="font-medium py-2 border-b border-gray-100 hover:text-sonhar-red transition-colors text-left"
+              className="font-medium py-2 border-b border-gray-700 text-white hover:text-sonhar-red transition-colors text-left"
             >
               Sobre
             </button>
             <button 
               onClick={() => handleNavigation('products')}
-              className="font-medium py-2 border-b border-gray-100 hover:text-sonhar-red transition-colors text-left"
+              className="font-medium py-2 border-b border-gray-700 text-white hover:text-sonhar-red transition-colors text-left"
             >
               Produtos
             </button>
             <button 
               onClick={() => handleNavigation('team')}
-              className="font-medium py-2 border-b border-gray-100 hover:text-sonhar-red transition-colors text-left"
+              className="font-medium py-2 border-b border-gray-700 text-white hover:text-sonhar-red transition-colors text-left"
             >
               Equipe
             </button>
             <button 
               onClick={() => handleNavigation('contact')}
-              className="font-medium py-2 border-b border-gray-100 hover:text-sonhar-red transition-colors text-left"
+              className="font-medium py-2 border-b border-gray-700 text-white hover:text-sonhar-red transition-colors text-left"
             >
               Contato
             </button>
