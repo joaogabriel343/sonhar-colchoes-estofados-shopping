@@ -17,7 +17,6 @@ export const STORE_INFO = {
     zoom: 15
   }
 };
-
 export const STORE_CONTACT_ITEMS = [
   {
     icon: MapPinIcon,
@@ -48,13 +47,30 @@ export const MISSION_VISION_VALUES = {
   ]
 };
 
+const generateAdditionalImages = (id, baseImage, category) => [
+  baseImage,
+  `https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&q=80&w=800&h=600&t=${id}1`,
+  `https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&q=80&w=800&h=600&t=${id}2`,
+  `https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&q=80&w=800&h=600&t=${id}3`
+];
+
 export const FEATURED_PRODUCTS = [
   {
     id: 1,
     name: "Colchão Ortopédico Premium",
     price: 1499.90,
     description: "Colchão ortopédico de alta densidade com molas ensacadas e tecido antiácaro, proporcionando o máximo conforto.",
-    image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&q=80&w=800&h=600",
+    image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&q=80&w=800&h=600",
+    additionalImages: generateAdditionalImages(1, "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&q=80&w=800&h=600", "mattress"),
+    fullDescription: "Nosso colchão ortopédico premium é projetado para oferecer suporte excepcional para a coluna, combinando molas ensacadas individualmente com camadas de espuma de alta densidade. O tecido antiácaro e antialérgico protege contra alérgenos, enquanto o sistema de ventilação mantém o colchão fresco durante toda a noite. Ideal para quem busca qualidade de sono superior e alívio para dores nas costas.",
+    specifications: {
+      "Material": "Molas ensacadas e espuma de alta densidade",
+      "Nível de Conforto": "Firme com toque macio",
+      "Altura": "28cm",
+      "Antiácaro": "Sim",
+      "Garantia": "5 anos",
+      "Suporte máximo": "180kg"
+    },
     isNew: true,
     discount: 10
   },
@@ -64,6 +80,19 @@ export const FEATURED_PRODUCTS = [
     price: 2599.90,
     description: "Sofá retrátil de 3 lugares com tecido suede e estrutura em madeira maciça, perfeito para sua sala.",
     image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&q=80&w=800&h=600",
+    additionalImages: generateAdditionalImages(2, "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&q=80&w=800&h=600", "sofa"),
+    fullDescription: "O Sofá Retrátil Confort é a combinação perfeita entre elegância e funcionalidade. Com seu mecanismo de reclinação suave, permite que você ajuste o assento para a posição ideal de relaxamento. A estrutura em madeira maciça garante durabilidade, enquanto o estofamento em espuma de alta densidade proporciona conforto duradouro. O revestimento em suede de alta qualidade é macio ao toque e resistente ao desgaste diário.",
+    specifications: {
+      "Material Estrutura": "Madeira maciça",
+      "Revestimento": "Suede",
+      "Mecanismo": "Retrátil",
+      "Lugares": "3",
+      "Largura (aberto)": "240cm",
+      "Largura (fechado)": "210cm",
+      "Profundidade": "95cm",
+      "Altura": "85cm",
+      "Garantia": "2 anos"
+    },
     isNew: false,
     discount: 0
   },
@@ -73,6 +102,18 @@ export const FEATURED_PRODUCTS = [
     price: 999.90,
     description: "Poltrona reclinável com tecido macio e estrutura ergonômica para momentos de relaxamento.",
     image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&q=80&w=800&h=600",
+    additionalImages: generateAdditionalImages(3, "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&q=80&w=800&h=600", "armchair"),
+    fullDescription: "A Poltrona Relax é projetada para proporcionar momentos de puro conforto e descanso. Com seu sistema reclinável de múltiplas posições, permite ajustar o encosto e o apoio para os pés conforme sua preferência. O estofamento generoso com espuma viscoelástica adapta-se ao corpo, aliviando pontos de pressão. Perfeita para leitura, assistir TV ou simplesmente relaxar após um longo dia.",
+    specifications: {
+      "Material Estrutura": "Madeira reflorestada e aço",
+      "Revestimento": "Veludo soft",
+      "Reclinável": "Sim, múltiplas posições",
+      "Apoio para pés": "Integrado",
+      "Largura": "85cm",
+      "Profundidade": "90cm",
+      "Altura": "105cm",
+      "Garantia": "1 ano"
+    },
     isNew: true,
     discount: 5
   }
@@ -85,7 +126,18 @@ export const ALL_PRODUCTS = [
     name: "Colchão Espuma Viscoelástica",
     price: 1299.90,
     description: "Colchão de espuma viscoelástica que se adapta ao seu corpo para um sono profundo e reparador.",
-    image: "https://images.unsplash.com/photo-1631679706909-1844bbd07221?auto=format&fit=crop&q=80&w=800&h=600",
+    image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&q=80&w=800&h=600",
+    additionalImages: generateAdditionalImages(4, "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&q=80&w=800&h=600", "memory+foam"),
+    fullDescription: "O Colchão Espuma Viscoelástica é projetado para oferecer um suporte personalizado ao seu corpo. A espuma viscoelástica sensível à temperatura se molda perfeitamente aos contornos do corpo, aliviando os pontos de pressão e proporcionando uma sensação de flutuação. Ideal para quem sofre de dores nas costas, ombros ou quadris, este colchão ajuda a manter a coluna alinhada durante toda a noite.",
+    specifications: {
+      "Material": "Espuma viscoelástica com base de alta densidade",
+      "Altura": "25cm",
+      "Densidade": "50kg/m³",
+      "Nível de firmeza": "Médio",
+      "Antiácaro": "Sim",
+      "Antialérgico": "Sim",
+      "Garantia": "3 anos"
+    },
     isNew: false,
     discount: 0
   },
@@ -95,6 +147,7 @@ export const ALL_PRODUCTS = [
     price: 1899.90,
     description: "Colchão casal com sistema de molas e camada extra de conforto para casais.",
     image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&q=80&w=800&h=600",
+    additionalImages: generateAdditionalImages(5, "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&q=80&w=800&h=600", "mattress"),
     isNew: false,
     discount: 15
   },
@@ -104,6 +157,7 @@ export const ALL_PRODUCTS = [
     price: 1799.90,
     description: "Sofá que se transforma em cama com facilidade, ideal para visitas ou espaços pequenos.",
     image: "https://images.unsplash.com/photo-1540574163026-643ea20ade25?auto=format&fit=crop&q=80&w=800&h=600",
+    additionalImages: generateAdditionalImages(6, "https://images.unsplash.com/photo-1540574163026-643ea20ade25?auto=format&fit=crop&q=80&w=800&h=600", "sofa+bed"),
     isNew: true,
     discount: 0
   },
@@ -113,6 +167,7 @@ export const ALL_PRODUCTS = [
     price: 1299.90,
     description: "Poltrona reclinável com apoio para os pés, tecido resistente e estofamento extra-macio.",
     image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&q=80&w=800&h=600",
+    additionalImages: generateAdditionalImages(7, "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&q=80&w=800&h=600", "recliner"),
     isNew: false,
     discount: 0
   },
@@ -122,6 +177,7 @@ export const ALL_PRODUCTS = [
     price: 799.90,
     description: "Cabeceira estofada com detalhes em capitonê, trazendo elegância para seu quarto.",
     image: "https://images.unsplash.com/photo-1505693314120-0d443867891c?auto=format&fit=crop&q=80&w=800&h=600",
+    additionalImages: generateAdditionalImages(8, "https://images.unsplash.com/photo-1505693314120-0d443867891c?auto=format&fit=crop&q=80&w=800&h=600", "headboard"),
     isNew: false,
     discount: 0
   },
@@ -131,6 +187,7 @@ export const ALL_PRODUCTS = [
     price: 299.90,
     description: "Puff multifuncional que serve como assento extra e item decorativo para sua sala.",
     image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&q=80&w=800&h=600",
+    additionalImages: generateAdditionalImages(9, "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&q=80&w=800&h=600", "pouf"),
     isNew: false,
     discount: 0
   },
@@ -139,7 +196,8 @@ export const ALL_PRODUCTS = [
     name: "Colchão Solteiro Premium",
     price: 999.90,
     description: "Colchão solteiro premium com tecnologia anti-pressão e tecido hipoalergênico.",
-    image: "https://reidecasa.com.br/uploads/produto_fotos/20230406150519_ambientecamasolteiropremiumcinamomo.jpg",
+    image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&q=80&w=800&h=600",
+    additionalImages: generateAdditionalImages(10, "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&q=80&w=800&h=600", "single+mattress"),
     isNew: false,
     discount: 0
   },
@@ -149,6 +207,7 @@ export const ALL_PRODUCTS = [
     price: 2499.90,
     description: "Conjunto box casal com base e colchão de molas ensacadas para durabilidade e conforto.",
     image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&q=80&w=800&h=600",
+    additionalImages: generateAdditionalImages(11, "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&q=80&w=800&h=600", "box+spring"),
     isNew: true,
     discount: 10
   },
@@ -158,6 +217,7 @@ export const ALL_PRODUCTS = [
     price: 3299.90,
     description: "Sofá de canto modular que pode ser reorganizado conforme sua necessidade e espaço.",
     image: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&q=80&w=800&h=600",
+    additionalImages: generateAdditionalImages(12, "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&q=80&w=800&h=600", "sectional+sofa"),
     isNew: false,
     discount: 0
   },
@@ -166,7 +226,8 @@ export const ALL_PRODUCTS = [
     name: "Recamier Elegance",
     price: 899.90,
     description: "Recamier elegante para compor o quarto ou sala, com tecido premium e detalhes sofisticados.",
-    image: "https://images.unsplash.com/photo-1605774337664-7a846e9cdf17?auto=format&fit=crop&q=80&w=800&h=600",
+    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&q=80&w=800&h=600",
+    additionalImages: generateAdditionalImages(13, "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&q=80&w=800&h=600", "chaise+lounge"),
     isNew: false,
     discount: 0
   },
@@ -176,6 +237,7 @@ export const ALL_PRODUCTS = [
     price: 249.90,
     description: "Banqueta alta estofada para bancada ou balcão, com estrutura resistente e conforto garantido.",
     image: "https://images.unsplash.com/photo-1601366533287-5ee4c763ae4e?auto=format&fit=crop&q=80&w=800&h=600",
+    additionalImages: generateAdditionalImages(14, "https://images.unsplash.com/photo-1601366533287-5ee4c763ae4e?auto=format&fit=crop&q=80&w=800&h=600", "bar+stool"),
     isNew: false,
     discount: 0
   },
@@ -185,6 +247,7 @@ export const ALL_PRODUCTS = [
     price: 149.90,
     description: "Travesseiro anatômico com espuma viscoelástica que se adapta ao formato do pescoço.",
     image: "https://images.unsplash.com/photo-1631679706909-1844bbd07221?auto=format&fit=crop&q=80&w=800&h=600",
+    additionalImages: generateAdditionalImages(15, "https://images.unsplash.com/photo-1631679706909-1844bbd07221?auto=format&fit=crop&q=80&w=800&h=600", "pillow"),
     isNew: false,
     discount: 0
   },
@@ -193,7 +256,8 @@ export const ALL_PRODUCTS = [
     name: "Colchão King Size",
     price: 2999.90,
     description: "Colchão king size com molas ensacadas individuais e pillow top para máximo conforto.",
-    image: "https://images.unsplash.com/photo-1617325247661-675ab4b64ae2?auto=format&fit=crop&q=80&w=800&h=600",
+    image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&q=80&w=800&h=600",
+    additionalImages: generateAdditionalImages(16, "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&q=80&w=800&h=600", "king+mattress"),
     isNew: true,
     discount: 5
   },
@@ -203,6 +267,7 @@ export const ALL_PRODUCTS = [
     price: 199.90,
     description: "Conjunto com 4 almofadas decorativas com cores e texturas complementares.",
     image: "https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&q=80&w=800&h=600",
+    additionalImages: generateAdditionalImages(17, "https://images.unsplash.com/photo-1616046229478-9901c5536a45?auto=format&fit=crop&q=80&w=800&h=600", "cushions"),
     isNew: false,
     discount: 0
   },
@@ -211,7 +276,8 @@ export const ALL_PRODUCTS = [
     name: "Protetor de Colchão Impermeável",
     price: 129.90,
     description: "Protetor de colchão impermeável e respirável que mantém seu colchão protegido.",
-    image: "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQvxR7NUT9eJ7b824KrtPVQ7lH-Vj2yMpcowyYNn9iEFuzah-KWvdN91t-VtRy55JQV3j4vLAYwyffkZ6q36UR9YV4IWyQGECqyfH4owTA",
+    image: "https://http2.mlstatic.com/D_Q_NP_796210-MLU78708527634_092024-O.webp",
+    additionalImages: generateAdditionalImages(18, "https://cdn.sistemawbuy.com.br/arquivos/dc7db93e78bf0dd8806d89ead6f85ac6/produtos/659bee840bab3/protetor-de-colchao-impermeavel-com-matelado-ultrassonico-rl-capas-king-size-branco-5d5293623a05f-large-659bee857ff69.jpeg", "mattress+protector"),
     isNew: false,
     discount: 0
   },
@@ -220,7 +286,8 @@ export const ALL_PRODUCTS = [
     name: "Bicama Solteiro Prática",
     price: 1599.90,
     description: "Bicama solteiro com cama auxiliar para visitas ou quartos compartilhados.",
-    image: "https://images.unsplash.com/photo-1505692952047-1a78307da8f2?auto=format&fit=crop&q=80&w=800&h=600",
+    image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&q=80&w=800&h=600",
+    additionalImages: generateAdditionalImages(19, "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&q=80&w=800&h=600", "trundle+bed"),
     isNew: false,
     discount: 0
   },
@@ -230,6 +297,7 @@ export const ALL_PRODUCTS = [
     price: 1899.90,
     description: "Sofá 2 lugares ideal para espaços pequenos, sem abrir mão do conforto e estilo.",
     image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&q=80&w=800&h=600",
+    additionalImages: generateAdditionalImages(20, "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&q=80&w=800&h=600", "loveseat"),
     isNew: false,
     discount: 0
   },
@@ -239,6 +307,7 @@ export const ALL_PRODUCTS = [
     price: 1699.90,
     description: "Cama box com baú para armazenamento, otimizando o espaço do seu quarto.",
     image: "https://images.unsplash.com/photo-1505693314120-0d443867891c?auto=format&fit=crop&q=80&w=800&h=600",
+    additionalImages: generateAdditionalImages(21, "https://images.unsplash.com/photo-1505693314120-0d443867891c?auto=format&fit=crop&q=80&w=800&h=600", "storage+bed"),
     isNew: true,
     discount: 8
   },
@@ -248,6 +317,7 @@ export const ALL_PRODUCTS = [
     price: 349.90,
     description: "Cadeira de jantar com assento e encosto estofados para conforto durante as refeições.",
     image: "https://images.unsplash.com/photo-1519947486511-46149fa0a254?auto=format&fit=crop&q=80&w=800&h=600",
+    additionalImages: generateAdditionalImages(22, "https://images.unsplash.com/photo-1519947486511-46149fa0a254?auto=format&fit=crop&q=80&w=800&h=600", "dining+chair"),
     isNew: false,
     discount: 0
   },
@@ -256,7 +326,8 @@ export const ALL_PRODUCTS = [
     name: "Colchão Baby Safe",
     price: 499.90,
     description: "Colchão infantil com materiais hipoalergênicos e certificação de segurança.",
-    image: "https://images.unsplash.com/photo-1589834390005-5d4fb9bf3d32?auto=format&fit=crop&q=80&w=800&h=600",
+    image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&q=80&w=800&h=600",
+    additionalImages: generateAdditionalImages(23, "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&q=80&w=800&h=600", "crib+mattress"),
     isNew: false,
     discount: 0
   },
@@ -266,6 +337,7 @@ export const ALL_PRODUCTS = [
     price: 1299.90,
     description: "Sofá que se transforma em cama de solteiro, perfeito para quartos de hóspedes.",
     image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&q=80&w=800&h=600",
+    additionalImages: generateAdditionalImages(24, "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&q=80&w=800&h=600", "sofa+bed+single"),
     isNew: false,
     discount: 0
   },
@@ -275,6 +347,7 @@ export const ALL_PRODUCTS = [
     price: 399.90,
     description: "Mesa de cabeceira com detalhes estofados, combinando funcionalidade e decoração.",
     image: "https://images.unsplash.com/photo-1505693314120-0d443867891c?auto=format&fit=crop&q=80&w=800&h=600",
+    additionalImages: generateAdditionalImages(25, "https://images.unsplash.com/photo-1505693314120-0d443867891c?auto=format&fit=crop&q=80&w=800&h=600", "nightstand"),
     isNew: false,
     discount: 0
   }
@@ -291,7 +364,7 @@ export const TEAM_MEMBERS = [
   },
   {
     id: 2,
-    name: "Eliane de Jesus",
+    name: "Eliane De Jesus",
     position: "Gerente",
     image: "https://i.postimg.cc/bv9dd4V6/image.png",
     contact: WHATSAPP_NUMBER,
@@ -299,15 +372,15 @@ export const TEAM_MEMBERS = [
   },
   {
     id: 3,
-    name: "Vanessa",
+    name: "Natália",
     position: "Consultora de Vendas",
     image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=300&h=300",
-    contact: WHATSAPP_NUMBER, 
+    contact: WHATSAPP_NUMBER,
     message: "Olá! Gostaria de falar com a Juliana da Sonhar Colchões e Estofados."
   },
   {
     id: 4,
-    name: "Natália",
+    name: "Vanessa",
     position: "Consultora de Vendas",
     image: "https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&q=80&w=300&h=300",
     contact: WHATSAPP_NUMBER,

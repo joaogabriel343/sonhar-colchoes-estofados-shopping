@@ -7,22 +7,22 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 0 0% 100%; /* Cor de texto ajustada para um tom escuro */
-    
+    --foreground: 0 0% 10%;
+
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 10%; /* Cor de texto do card */
+    --card-foreground: 0 0% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 10%; /* Cor de texto do popover */
+    --popover-foreground: 0 0% 10%;
 
     --primary: 0 100% 45%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 0 0% 10%;
-    --secondary-foreground: 0 0% 100%; /* Cor de texto secundário */
+    --secondary-foreground: 0 0% 100%;
 
     --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%; /* Cor de texto "muted" */
+    --muted-foreground: 0 0% 45%;
 
     --accent: 0 100% 45%;
     --accent-foreground: 0 0% 100%;
@@ -36,53 +36,22 @@
 
     --radius: 0.5rem;
   }
-  
-
-  /* Aplicando no corpo e elementos de texto */
-  body {
-    @apply bg-background text-foreground font-sans antialiased;
-  }
-
-    /* Garantir que todo texto dentro dos slides seja branco */
-    .hero-slide-text h1,
-    .hero-slide-text p {
-      color: white !important;
-    }
-
-
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-display font-medium text-sonhar-black;
-  }
-
-  p, span, li {
-    @apply text-foreground; /* Agora a cor de texto será controlada por --foreground */
-  }
 
   * {
     @apply border-border;
   }
-
+  
   html {
     scroll-behavior: smooth;
   }
-
+  
   body {
     @apply bg-background text-foreground font-sans antialiased;
-  } 
+  }
   
-  /* Atualizado para garantir que as cores de texto sejam mais escuras */
-  .dark p, .dark , .dark li {
-    @apply text-gray-800; /* Cor de texto escura no modo escuro */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-medium text-sonhar-black;
   }
-  /*AQUIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII TROCA A COR DO INTERESSSSSSSSE*/
-  span{
-    @apply text-gray-100;
-  }
-  /* Garantir que apenas os span dentro do ul com classe "space-y-2" terão texto preto */
-.space-y-2 li span {
-  @apply text-black; /* Texto preto apenas dentro da lista de valores */
-}
-
 }
 
 @layer components {
@@ -91,15 +60,11 @@
   }
   
   .btn-secondary {
-    @apply bg-sonhar-black dark:bg-white dark:text-sonhar-black text-white px-6 py-3 rounded-md font-medium transition-all duration-300 hover:bg-opacity-90 shadow-sm;
+    @apply bg-sonhar-black text-white px-6 py-3 rounded-md font-medium transition-all duration-300 hover:bg-opacity-90 shadow-sm;
   }
   
   .btn-outline {
-    @apply border-2 border-sonhar-red text-sonhar-red dark:text-sonhar-red px-6 py-[10px] rounded-md font-medium transition-all duration-300 hover:bg-sonhar-red hover:text-white shadow-sm;
-  }
-
-  .message-btn {
-    @apply bg-sonhar-red text-white px-6 py-3 rounded-md font-medium transition-all duration-300 hover:bg-opacity-90 shadow-sm;
+    @apply border-2 border-sonhar-red text-sonhar-red px-6 py-[10px] rounded-md font-medium transition-all duration-300 hover:bg-sonhar-red hover:text-white shadow-sm;
   }
   
   .section-title {
@@ -115,7 +80,7 @@
   }
 
   .text-gradient {
-    @apply bg-gradient-to-r from-sonhar-red to-sonhar-black dark:to-white bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-sonhar-red to-sonhar-black bg-clip-text text-transparent;
   }
   
   .section-padding {
@@ -151,10 +116,23 @@
 
 /* Glass effect */
 .glass {
-  @apply bg-white dark:bg-black bg-opacity-10 dark:bg-opacity-10 backdrop-blur-md border border-white dark:border-gray-800 border-opacity-20 shadow-lg;
+  @apply bg-white bg-opacity-10 backdrop-blur-md border border-white border-opacity-20 shadow-lg;
 }
 
 /* Prevent image distortion */
 .img-cover {
   @apply w-full h-full object-cover;
+}
+
+/* Product gallery styles */
+.product-gallery-thumb {
+  @apply cursor-pointer border-2 border-transparent rounded-md overflow-hidden transition-all;
+}
+
+.product-gallery-thumb.active {
+  @apply border-sonhar-red;
+}
+
+.product-details-image {
+  @apply rounded-lg overflow-hidden transition-all duration-500;
 }

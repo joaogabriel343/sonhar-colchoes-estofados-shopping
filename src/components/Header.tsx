@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, Phone } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { WHATSAPP_NUMBER, WHATSAPP_MESSAGE } from '@/lib/constants';
-import ThemeToggle from './ThemeToggle';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-
+  const location = useLocation();
+  
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -30,111 +30,127 @@ const Header = () => {
     window.open(whatsappUrl, '_blank');
   };
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Function to handle navigation on the AllProducts page
+  const handleNavigation = (sectionId: string) => {
+    // Close the mobile menu if it's open
+    if (isMenuOpen) {
+      setIsMenuOpen(false);
+    }
+
+    // If we're on the homepage, we can scroll to the section
+    if (location.pathname === '/') {
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // If we're on another page, navigate to homepage then to the section
+      window.location.href = `/#${sectionId}`;
+    }
   };
 
   return (
-    <header
+    <header 
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white dark:bg-sonhar-black shadow-lg py-2' : 'bg-transparent dark:bg-transparent py-4'
+        scrolled ? 'bg-sonhar-black shadow-lg py-2 text-white' : 'bg-white py-4 text-sonhar-black'
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
         {/* Logo Placeholder */}
-        <Link to="/" className="flex items-center" onClick={scrollToTop}>
+        <Link to="/" className="flex items-center">
           <div className="h-10 w-40 flex items-center">
             <h1 className="text-xl font-bold text-sonhar-red">
-              SONHAR <span className="text-sonhar-black dark:text-white">Colchões</span>
+              SONHAR <span className={scrolled ? 'text-white' : 'text-sonhar-black'}>Colchões</span>
             </h1>
           </div>
         </Link>
-
+        
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
-          <Link
-            to="/"
-            className="font-medium hover:text-sonhar-red transition-colors"
-            onClick={scrollToTop}
-          >
+          <Link to="/" className={`font-medium hover:text-sonhar-red transition-colors ${scrolled ? 'text-white' : 'text-sonhar-black'}`}>
             Início
           </Link>
-          <a href="#about" className="font-medium hover:text-sonhar-red transition-colors">
+          <button 
+            onClick={() => handleNavigation('about')} 
+            className={`font-medium hover:text-sonhar-red transition-colors ${scrolled ? 'text-white' : 'text-sonhar-black'}`}
+          >
             Sobre
-          </a>
-          <a href="#products" className="font-medium hover:text-sonhar-red transition-colors">
+          </button>
+          <button 
+            onClick={() => handleNavigation('products')} 
+            className={`font-medium hover:text-sonhar-red transition-colors ${scrolled ? 'text-white' : 'text-sonhar-black'}`}
+          >
             Produtos
-          </a>
-          <a href="#team" className="font-medium hover:text-sonhar-red transition-colors">
+          </button>
+          <button 
+            onClick={() => handleNavigation('team')} 
+            className={`font-medium hover:text-sonhar-red transition-colors ${scrolled ? 'text-white' : 'text-sonhar-black'}`}
+          >
             Equipe
-          </a>
-          <a href="#contact" className="font-medium hover:text-sonhar-red transition-colors">
+          </button>
+          <button 
+            onClick={() => handleNavigation('contact')} 
+            className={`font-medium hover:text-sonhar-red transition-colors ${scrolled ? 'text-white' : 'text-sonhar-black'}`}
+          >
             Contato
-          </a>
+          </button>
         </nav>
 
         <div className="hidden md:flex items-center gap-4">
-          {/* Theme Toggle Button */}
-          <ThemeToggle />
-
           {/* Contact Button */}
-          <button onClick={handleWhatsAppClick} className="flex items-center gap-2 btn-primary">
+          <button 
+            onClick={handleWhatsAppClick}
+            className="flex items-center gap-2 btn-primary"
+          >
             <Phone size={18} />
             <span>Fale Conosco</span>
           </button>
         </div>
 
         <div className="md:hidden flex items-center gap-2">
-          {/* Theme Toggle Button on Mobile */}
-          <ThemeToggle />
-
           {/* Mobile Menu Button */}
           <button className="ml-2" onClick={toggleMenu}>
-            {isMenuOpen ? <X size={24} className="dark:text-white" /> : <Menu size={24} className="dark:text-white" />}
+            {isMenuOpen ? <X size={24} className={scrolled ? 'text-white' : 'text-sonhar-black'} /> : <Menu size={24} className={scrolled ? 'text-white' : 'text-sonhar-black'} />}
           </button>
         </div>
       </div>
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-white dark:bg-sonhar-black shadow-md py-4 px-4 animate-fadeIn">
+        <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-md py-4 px-4 animate-fadeIn">
           <nav className="flex flex-col gap-4">
-            <Link
-              to="/"
-              className="font-medium py-2 border-b border-gray-100 dark:border-gray-800 hover:text-sonhar-red transition-colors dark:text-white"
-              onClick={() => { setIsMenuOpen(false); scrollToTop(); }}
+            <Link 
+              to="/" 
+              className="font-medium py-2 border-b border-gray-100 hover:text-sonhar-red transition-colors"
+              onClick={() => setIsMenuOpen(false)}
             >
               Início
             </Link>
-            <a
-              href="#about"
-              className="font-medium py-2 border-b border-gray-100 dark:border-gray-800 hover:text-sonhar-red transition-colors dark:text-white"
-              onClick={() => setIsMenuOpen(false)}
+            <button 
+              onClick={() => handleNavigation('about')}
+              className="font-medium py-2 border-b border-gray-100 hover:text-sonhar-red transition-colors text-left"
             >
               Sobre
-            </a>
-            <a
-              href="#products"
-              className="font-medium py-2 border-b border-gray-100 dark:border-gray-800 hover:text-sonhar-red transition-colors dark:text-white"
-              onClick={() => setIsMenuOpen(false)}
+            </button>
+            <button 
+              onClick={() => handleNavigation('products')}
+              className="font-medium py-2 border-b border-gray-100 hover:text-sonhar-red transition-colors text-left"
             >
               Produtos
-            </a>
-            <a
-              href="#team"
-              className="font-medium py-2 border-b border-gray-100 dark:border-gray-800 hover:text-sonhar-red transition-colors dark:text-white"
-              onClick={() => setIsMenuOpen(false)}
+            </button>
+            <button 
+              onClick={() => handleNavigation('team')}
+              className="font-medium py-2 border-b border-gray-100 hover:text-sonhar-red transition-colors text-left"
             >
               Equipe
-            </a>
-            <a
-              href="#contact"
-              className="font-medium py-2 border-b border-gray-100 dark:border-gray-800 hover:text-sonhar-red transition-colors dark:text-white"
-              onClick={() => setIsMenuOpen(false)}
+            </button>
+            <button 
+              onClick={() => handleNavigation('contact')}
+              className="font-medium py-2 border-b border-gray-100 hover:text-sonhar-red transition-colors text-left"
             >
               Contato
-            </a>
-            <button onClick={handleWhatsAppClick} className="whatsapp-btn self-start mt-2">
+            </button>
+            <button 
+              onClick={handleWhatsAppClick}
+              className="whatsapp-btn self-start mt-2"
+            >
               <Phone size={18} />
               <span>Fale Conosco</span>
             </button>
