@@ -6,7 +6,6 @@ import ProductDetail from './ProductDetail';
 type ProductCardProps = {
   id: number;
   name: string;
-  price: number;
   description: string;
   image: string;
   isNew?: boolean;
@@ -16,12 +15,10 @@ type ProductCardProps = {
   specifications?: Record<string, string>;
 };
 
-const ProductCard = ({ id, name, price, description, image, isNew = false, discount = 0, ...rest }: ProductCardProps) => {
+const ProductCard = ({ id, name, description, image, isNew = false, discount = 0, ...rest }: ProductCardProps) => {
   const [isDetailOpen, setIsDetailOpen] = useState(false);
   
-  const discountedPrice = price - (price * (discount / 100));
-  const formattedPrice = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(discountedPrice);
-  const formattedOriginalPrice = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(price);
+
 
   const handleWhatsAppClick = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -48,10 +45,6 @@ const ProductCard = ({ id, name, price, description, image, isNew = false, disco
         <div className="p-6">
           <h3 className="text-xl font-display font-bold mb-2 truncate">{name}</h3>
           <div className="flex items-baseline gap-2 mb-3">
-            <span className="text-2xl font-bold text-sonhar-red">{formattedPrice}</span>
-            {discount > 0 && (
-              <span className="text-sm text-gray-500 line-through">{formattedOriginalPrice}</span>
-            )}
           </div>
           <p className="text-sm text-gray-600 mb-4 line-clamp-2">{description}</p>
           <button 
@@ -65,7 +58,7 @@ const ProductCard = ({ id, name, price, description, image, isNew = false, disco
       </div>
 
       <ProductDetail 
-        product={{ id, name, price, description, image, isNew, discount, ...rest }}
+        product={{ id, name, description, image, isNew, discount, ...rest }}
         isOpen={isDetailOpen}
         onClose={() => setIsDetailOpen(false)}
       />

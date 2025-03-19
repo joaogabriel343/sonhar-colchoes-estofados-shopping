@@ -7,7 +7,6 @@ type ProductDetailProps = {
   product: {
     id: number;
     name: string;
-    price: number;
     description: string;
     image: string;
     isNew?: boolean;
@@ -47,16 +46,11 @@ const ProductDetail = ({ product, isOpen, onClose }: ProductDetailProps) => {
     setActiveImage((prev) => (prev === 0 ? allImages.length - 1 : prev - 1));
   };
 
-  const discountedPrice = product.price - (product.price * ((product.discount || 0) / 100));
-  const formattedPrice = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(discountedPrice);
-  const formattedOriginalPrice = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(product.price);
 
   // Default specifications if none provided
   const specs = product.specifications || {
     "Material": "Espuma de alta densidade",
-    "Garantia": "1 ano",
     "Dimensões": "Variável conforme modelo",
-    "Peso suportado": "Até 150kg",
     "Composição": "Tecido antialérgico e espuma"
   };
 
@@ -69,10 +63,6 @@ const ProductDetail = ({ product, isOpen, onClose }: ProductDetailProps) => {
               {product.name}
             </DialogTitle>
             <DialogDescription className="mt-1 text-lg">
-              <span className="text-xl font-bold text-sonhar-red">{formattedPrice}</span>
-              {product.discount && product.discount > 0 && (
-                <span className="ml-2 text-sm text-gray-500 line-through">{formattedOriginalPrice}</span>
-              )}
             </DialogDescription>
           </div>
           <DialogClose className="p-2 rounded-full hover:bg-gray-100">

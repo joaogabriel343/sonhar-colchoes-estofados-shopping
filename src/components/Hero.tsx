@@ -6,17 +6,17 @@ const slides = [
   {
     title: "O melhor em conforto para o seu lar",
     subtitle: "Colchões e estofados de alta qualidade",
-    image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&q=80&w=1920&h=1080",
+    image: "https://i.postimg.cc/85fFQcXY/Imagem-do-Whats-App-de-2025-03-15-s-13-09-10-4410288f.jpg",
   },
   {
     title: "Transforme seus momentos de descanso",
     subtitle: "Conforto e durabilidade garantidos",
-    image: "https://gazin-images.gazin.com.br/C3QJgQggiGgUM-9kcgkFfmzgSHI=/1920x/filters:format(webp):quality(75)/https://gazin-images.gazin.com.br/IUAKq5cQ5bf9bEzsjCC4jpxbDXQ=/filters:format(webp):quality(75)/https://gazin-marketplace.s3.amazonaws.com/midias/imagens/2022/03/colchao-box-queen-gazin-espuma-d45-e-d28-pillow-top-158x198-excelsior-172203102249.jpg",
+    image: "https://i.postimg.cc/VNdvn5wN/Imagem-do-Whats-App-de-2025-03-15-s-13-10-30-13c16f5b.jpg",
   },
   {
     title: "Design e qualidade em cada detalhe",
     subtitle: "Sua casa merece o melhor",
-    image: "https://media.gettyimages.com/id/1082349950/pt/v%C3%ADdeo/modern-hotel-bedroom-interior.jpg?s=640x640&k=20&c=EnZqzpVVHTPvUgT_0KVCqgWSNbil2-ZqFAOklm5g34M=",
+    image: "https://i.postimg.cc/C5HxSqGc/Imagem-do-Whats-App-de-2025-03-15-s-13-09-45-0c8d9f5d.jpg",
   }
 ];
 
